@@ -2,11 +2,15 @@
  - name: crete user
    hosts: all
    remote_user: web.hicham.form
+   become: yes
+   become_method: sudo
    roles:
     - user
  - name: crete user
    hosts: all
    remote_user: db.hicham.form
+   become: yes
+   become_method: sudo
    roles:
     - user    
   #Apache 
