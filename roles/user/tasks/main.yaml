@@ -21,18 +21,17 @@
         user: web.hicham.form
         state: present
         key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-        
+    - name: Ajout de user web dans sudo
+      template:
+        src: "sudoweb.j2"
+        dest: "/etc/sudoers.d/web.hicham.form"
     - name: add clef ssh
       authorized_key:
         user: db.hicham.form
         state: present
-        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"    
         
-    - name: Ajout de du user web dans sudo
+    - name: Ajout de user db dans sudo
       template:
-        src: "sudoweb.j2"
-        dest: "/etc/sudoers.d/web.hicham.form"
-    - name: Ajout de du user db dans sudo
-      template:
-        src: "/var/jenkins_home/workspace/Examapp-salaireTest/roles/user/tasks/templates/sudodb.j2"
+        src: "sudodb.j2"
         dest: "/etc/sudoers.d/db.hicham.form"
