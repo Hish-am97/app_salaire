@@ -1,13 +1,13 @@
----
+
     - name: ajout group
       group:
-       name: "{{ group }}"
+       name: exam
        state: present
 
     - name: create user
       user:
         name: "{{ user }}"
-        group: "{{ group }}"
+        group: exam
         state: present
 
     - name: add clef ssh
