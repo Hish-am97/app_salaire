@@ -12,7 +12,7 @@
     authorized_key:
      user: "{{ user }}"
      state: present
-     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+     key: "{{ lookup('file', '/root/{{ user }}/.ssh/id_rsa.pub') }}"
      
   - name: ajout user  dans sudo
     copy:
@@ -28,7 +28,7 @@
     authorized_key:
      user: "{{ user }}"
      state: present
-     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+     key: "{{ lookup('file', '/root/{{ user }}/.ssh/id_rsa.pub') }}"
      
   - name: ajout user  dans sudo
     copy:
