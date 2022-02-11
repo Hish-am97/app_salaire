@@ -20,10 +20,10 @@
       authorized_key:
         user: web.hicham.form
         state: present
-        key: "{{ lookup('file', '/home/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
         
     - name: add clef ssh
       authorized_key:
         user: db.hicham.form
         state: present
-        key: "{{ lookup('file', '/home/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
