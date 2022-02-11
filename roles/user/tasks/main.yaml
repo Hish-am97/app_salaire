@@ -25,13 +25,3 @@
       template:
         src: "sudoweb.j2"
         dest: "/etc/sudoers.d/web.hicham.form"
-    - name: add clef ssh
-      authorized_key:
-        user: db.hicham.form
-        state: present
-        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"    
-        
-    - name: Ajout de user db dans sudo
-      template:
-        src: "sudodb.j2"
-        dest: "/etc/sudoers.d/db.hicham.form"
