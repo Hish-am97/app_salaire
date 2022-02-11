@@ -15,16 +15,5 @@
         name: db.hicham.form
         group: exam
         state: present
-        
-    - name: add clef ssh
-      authorized_key:
-        user: web.hicham.form
-        state: present
-        key: "{{ lookup('file', '/home/web.hicham.form/.ssh/id_rsa.pub') }}"
-        
-    - name: add clef ssh
-      authorized_key:
-        user: db.hicham.form
-        state: present
-        key: "{{ lookup('file', '/home/db.hicham.form/.ssh/id_rsa.pub') }}"
-        
+            - name: add clef ssh
+
