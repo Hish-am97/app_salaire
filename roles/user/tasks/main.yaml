@@ -7,17 +7,24 @@
     user:
      name: web.hicham.form
      group: exam
-  - name: creation de l utilsateur "{{ user }}"
-    user:
-     name: db.hicham.form
-     group: exam
-  - name: Copie de la cle publique {{ user }}
+     
+  - name: Copie de la cle publique "{{ user }}"
     authorized_key:
      user: "{{ user }}"
      state: present
      key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-    loop:
-      "{{ user }}"
+     
+  - name: creation de l utilsateur "{{ user }}"
+    user:
+     name: db.hicham.form
+     group: exam
+     
+  - name: Copie de la cle publique "{{ user }}"
+    authorized_key:
+     user: "{{ user }}"
+     state: present
+     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+     
   - name: ajout user  dans sudo
     copy:
      src: "/etc/sudoers.d/{{ user }}"
