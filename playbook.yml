@@ -2,10 +2,9 @@
  - name: crete users
    hosts: all
    become: yes
-   remote_user: 
-     - web.hicham.form
-     - db.hicham.form
-   
+   users: 
+    - web.hicham.form
+    - db.hicham.form
   #Apache 
  - name: install serveur web 
    hosts: webservers
