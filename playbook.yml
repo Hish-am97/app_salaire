@@ -2,7 +2,7 @@
  - name: crete users
    hosts: all
    become: yes
-   remote_user: web.hicham.form
+   remote_user: hicham
    roles:
      - user
   #Apache 
