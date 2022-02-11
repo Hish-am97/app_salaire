@@ -1,7 +1,7 @@
 ---
-  vars_files:
-    "variables.yaml"
-
+user: 
+ - db.hicham.form
+ - web.hicham.form
   - name: ajout du groupe exam
     group:
      name: exam
