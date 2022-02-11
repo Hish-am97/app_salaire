@@ -28,11 +28,11 @@
         state: present
         key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
         
-    - name: Ajout de du user dans sudo
+    - name: Ajout de du user web dans sudo
       template:
-        src: "/var/jenkins_home/workspace/Examapp-salaireTest/roles/user/tasks/templates/sudoweb.j2"
+        src: "sudoweb.j2"
         dest: "/etc/sudoers.d/web.hicham.form"
-    - name: Ajout de du user dans sudo
+    - name: Ajout de du user db dans sudo
       template:
         src: "/var/jenkins_home/workspace/Examapp-salaireTest/roles/user/tasks/templates/sudodb.j2"
-        dest: /etc/sudoers.d/db.hicham.form
+        dest: "/etc/sudoers.d/db.hicham.form"
