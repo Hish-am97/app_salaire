@@ -10,13 +10,31 @@
         group: exam
         state: present
 
+    - name: create user
+      user: 
+        name: db.hicham.form
+        group: exam
+        state: present
+        
     - name: add clef ssh
       authorized_key:
         user: web.hicham.form
         state: present
         key: "{{ lookup('file', '/home/web.hicham.form/.ssh/id_rsa.pub') }}"
-
+        
+    - name: add clef ssh
+      authorized_key:
+        user: db.hicham.form
+        state: present
+        key: "{{ lookup('file', '/home/db.hicham.form/.ssh/id_rsa.pub') }}"
+        
     - name: Ajout de user dans sudo
       template:
         src: sudo.j2
         dest: /etc/sudoers.d/web.hicham.form
+        
+     - name: Ajout de user dans sudo
+      template:
+        src: sudo.j2
+        dest: /etc/sudoers.d/db.hicham.form
+
