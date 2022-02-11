@@ -1,10 +1,14 @@
 ---
- - name: crete users
+ - name: crete user
    hosts: all
-   become: yes
-   remote_user: web.hicham.form, db.hicham.form
+   remote_user: web.hicham.form
    roles:
     - user
+ - name: crete user
+   hosts: all
+   remote_user: db.hicham.form
+   roles:
+    - user    
   #Apache 
  - name: install serveur web 
    hosts: webservers
