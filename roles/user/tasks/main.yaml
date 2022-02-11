@@ -1,23 +1,26 @@
---- 
-- 
-  group: 
-    name: exam
-    state: present
-  name: "ajout group"
-- 
-  name: create user
-  user: 
-    group: exam
-    name: "{{ user }}"
-    state: present
-- 
-  authorized_key: 
-    key: "{{ lookup('file', '/home/{{ user }}/.ssh/id_rsa.pub') }}"
-    state: present
-    user: "{{ user }}"
-  name: "add clef ssh"
-- 
-  name: "Ajout de \"{{ user }}\" dans sudo"
-  template: 
-    dest: "/etc/sudoers.d/{{ user }}"
-    src: sudo.j2
+---
+  - name: ajout du groupe exam
+    group:
+     name: exam
+     state: present
+  - name: creation de l utilsateur "{{ user }}"
+    user:
+     name: web.hicham.form
+     group: exam
+  - name: creation de l utilsateur "{{ user }}"
+    user:
+     name: db.hicham.form
+     group: exam
+  - name: Copie de la cle publique {{ user }}
+    authorized_key:
+     user: "{{ user }}"
+     state: present
+     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+    loop:
+      "{{ user }}"
+  - name: ajout user  dans sudo
+    copy:
+     src: "/etc/sudoers.d/{{ user }}"
+     dest: "/etc/sudoers.d/{{ user }}"
+    loop:
+     "{{ user }}"
