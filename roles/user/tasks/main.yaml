@@ -1,22 +1,33 @@
 ---
+ - hosts: all
+   Vars:
+    user: 
+     - db.hicham.form
+     - web.hicham.form
+    tasks:
     - name: ajout group
       group:
         name: exam
         state: present
-
+        
     - name: create user
       user:
        name: "{{ user }}"
        group: exam
        state: present
-
+      loop:
+        "{{ user }}"
+        
     - name: add clef ssh
       authorized_key:
        user: "{{ user }}"
        state: present
        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-
+      loop:
+        "{{ user }}"
     - name: Ajout de  user dans sudo
       template:
        src: "sudo.j2"
        dest: "/etc/sudoers.d/{{ user }}"
+      loop:
+        "{{ user }}"
