@@ -6,12 +6,12 @@
     roles:
      - user
   #Apache 
- - name: install serveur web 
-    hosts: web
-    roles:
-     - webserver
+- name: install serveur web 
+   hosts: web
+   roles:
+    - webserver
    #Dtabase
- - name: install DataBase
-    hosts: db
-    roles:
-     - database
+- name: install DataBase
+   hosts: db
+   roles:
+    - database
