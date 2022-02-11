@@ -5,7 +5,7 @@
     state: present
   name: "ajout group"
 - 
-  name: "create user"
+  name: create user
   user: 
     group: "{{ group }}"
     name: exam
