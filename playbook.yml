@@ -8,10 +8,10 @@
   #Apache 
  - name: install serveur web 
    hosts: web
-   roles:
-   - webserver
+    roles:
+     - webserver
    #Dtabase
  - name: install DataBase
    hosts: db
-   roles:
-   - database
+    roles:
+     - database
