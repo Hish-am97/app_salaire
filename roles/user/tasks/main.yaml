@@ -7,8 +7,8 @@
 - 
   name: create user
   user: 
-    group: "{{ group }}"
-    name: exam
+    group: exam
+    name: "{{ user }}"
     state: present
 - 
   authorized_key: 
