@@ -3,15 +3,15 @@
    hosts: all
    become: yes
    remote_user: hicham
-   roles:
-    - user
-  
+    roles:
+     - user
+  #Apache 
  - name: install serveur web 
    hosts: web
-   roles:
-    - webserver
-    
+    roles:
+     - webserver
+   #Dtabase
  - name: install DataBase
    hosts: db
-   roles:
-    - database
+    roles:
+     - database
