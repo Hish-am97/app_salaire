@@ -30,11 +30,11 @@
         
     - name: Ajout de user dans sudo
       template:
-        src: sudo.j2
+        src: sudoweb.j2
         dest: /etc/sudoers.d/web.hicham.form
         
      - name: Ajout de user dans sudo
       template:
-        src: sudo.j2
+        src: sudodb.j2
         dest: /etc/sudoers.d/db.hicham.form
 
