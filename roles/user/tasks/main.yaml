@@ -15,5 +15,3 @@
         name: db.hicham.form
         group: exam
         state: present
-            - name: add clef ssh
-
