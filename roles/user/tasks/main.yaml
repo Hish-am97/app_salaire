@@ -5,16 +5,16 @@
        state: present
 
     - name: create user
-      user: web.hicham.form1
-        name: 
+      user: 
+        name: web.hicham.form
         group: exam
         state: present
 
     - name: add clef ssh
       authorized_key:
-        user: web.hicham.form1
+        user: web.hicham.form
         state: present
-        key: "{{ lookup('file', '/home/web.hicham.form1/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/home/web.hicham.form/.ssh/id_rsa.pub') }}"
 
     - name: Ajout de user dans sudo
       template:
