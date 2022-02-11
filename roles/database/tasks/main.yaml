@@ -1,4 +1,4 @@
-- name: installation mysql
+  - name: installation mysql
     yum:
       name: "{{ item }}"
       state: present
